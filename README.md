@@ -12,4 +12,4 @@ Podlinkowana [prezentacja]
 
 
 
-[prezentacja]:https://slides.com/djakubek/test).
+[prezentacja]:https://slides.com/djakubek/test
