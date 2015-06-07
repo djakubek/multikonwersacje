@@ -1,0 +1,79 @@
+<head>
+    <title>Multikonwersacje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {{> chat}}
+</body>
+
+<template name="chat">
+    <div class="container">
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                
+                <ul class="nav">
+                    <li><a href="https://github.com/kassszub/multikonwersacje" target="_blank">Github.kassszub.com</a></li>
+                   
+                </ul>
+                <ul class="nav pull-right">
+                    <li></li>
+                    <li><a>{{> loginButtons align="right"}}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        {{#if currentUser}}
+        <div class="row-fluid">
+            <div class="span12 well">
+                {{> input}}
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span8 well">
+                {{> messages}}
+            </div>
+            <div class="span4 well">
+                {{> rooms}}
+            </div>
+        </div>
+        {{else}}
+        <div class="hero-unit">
+            <h2>Witaj w multikonwersacjach</h2>
+            <p>Chcesz poznać nurtujące cię pytania ? A może poprostu tego potrzebujesz ! Zaloguj się i zaczynaj :)</p>
+        </div>
+        {{/if}}
+
+    </div>
+</template>
+
+<template name="input">
+    <input type="text" id="msg" placeholder="Tu wpisz co tylko chcesz..." style="width: 50%; margin-bottom: 0px">
+    <input type="button" value="Wyślij wiadomość" class="btn btn-primary sendMsg">
+</template>
+
+<template name="messages">
+    <h4>Konwersacja: {{roomname}}</h4>
+    <div id="messages" style="background-color: #66cc66; border: 1px solid darkgray; max-height: 200px; overflow: auto">
+        {{#each messages}}
+            {{> message}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="message">
+    <p><strong>{{user}}</strong> <span style="font-size: 0.7em; color: darkgray">({{timestamp}})</span>: <i>{{msg}}</i></p>
+</template>
+
+<template name="rooms">
+    <h4>Dołącz do konwersacji:</h4>
+    <ul>
+    {{#each rooms}}
+        {{> room}}
+    {{/each}}
+    </ul>
+</template>
+
+<template name="room">
+    <li style="cursor: pointer; {{roomstyle}}">{{roomname}}</li>
+</template>

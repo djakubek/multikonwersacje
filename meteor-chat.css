@@ -1,0 +1,14 @@
+/* CSS declarations go here */
+body {
+    padding: 60px;
+    background-color: #2f2f4f;
+    font-family: "Titillium Web", sans-serif;
+    font-weight: normal;
+}
+.navbar {
+	background-color: #33FF99;
+	background-color: rgba( 228, 230, 229, .85 );
+	border-bottom: 0 none;
+	font-size: 12px;
+	transition: .25s all linear;
+}
